@@ -23,7 +23,7 @@ def cargar_clientes():
 def guardar_clientes(clientes):
 
     with open(CLIENTES_FILE, 'w', newline='', encoding='utf-8') as file:
-        fieldnames = ['id_cliente', 'nombre', 'apellido', 'telefono', 'activo']
+        fieldnames = ['id_cliente', 'nombe', 'apellido', 'telefono', 'activo']
         writer = csv.DictWriter(file, fieldnames=fieldnames)
         writer.writeheader()
         for c in clientes:
