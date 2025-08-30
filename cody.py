@@ -23,7 +23,7 @@ def cargar_clientes():
 def guardar_clientes(clientes):
 
     with open(CLIENTES_FILE, 'w', newline='', encoding='utf-8') as file:
-        fieldnames = ['id_cliente', 'nombe', 'apellido', 'telefono', 'activo']
+        fieldnames = ['id_cliente', 'nombre', 'apellido', 'telefono', 'activo']
         writer = csv.DictWriter(file, fieldnames=fieldnames)
         writer.writeheader()
         for c in clientes:
@@ -235,7 +235,8 @@ def menu():
         print("5. Listar pedidos de cliente")
         print("6. Guardar venta")
         print("7. Listar ventas por cliente")
-        print("8. Salir")
+        print("8. eliminar pedido")
+        print("9. Salir")
 
         opcion = input("Opción: ").strip()
 
@@ -253,13 +254,14 @@ def menu():
             guardar_venta(clientes, pedidos)
         elif opcion == '7':
             listar_ventas_por_cliente(clientes, pedidos)
-        elif opcion == '8':
+        elif opcion == '9':
             print("Saliendo...")
             break
+        elif opcion == '8':
+            eliminar_pedido(pedidos)
         else:
             print("Opción inválida")
 
 
 if __name__ == "__main__":
     menu()
-
